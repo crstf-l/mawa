@@ -1,20 +1,24 @@
 #!/bin/bash
 #variables
 vm=mawa
+input=$1
+if [ "$1" == "" ]; then
+read -p ">" input
+fi
 #codigo
 #start
-if [ "$1" == "-h" ]; then
-echo -e  $0 can use: "\n" start / save / stop 
+if [ "$input" == "-h" ]; then
+echo -e  $0 can use: "\n" start / save / stop
 fi
-if [ "$1" == "start" ]; then 
-	vboxmanage startvm $vm
+if [ "$input" == "start" ]; then
+        vboxmanage startvm $vm
 fi
 #save state
-if [ "$1" == "save" ]; then 
-	vboxmanage controlvm $vm savestate
+if [ "$input" == "save" ]; then
+        vboxmanage controlvm $vm savestate
 fi
-# poweroff 
+# poweroff
 #output del comando mola
-if [ "$1" == "stop" ]; then 
-	vboxmanage controlvm $vm poweroff
+if [ "$input" == "stop" ]; then
+        vboxmanage controlvm $vm poweroff
 fi
