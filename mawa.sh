@@ -1,6 +1,6 @@
 #!/bin/bash
 #variables
-vm=mawa
+vm="$(cat vm)"
 input=$1
 if [ "$1" == "" ]; then
 read -p ">" input
@@ -21,4 +21,8 @@ fi
 #output del comando mola
 if [ "$input" == "stop" ]; then
         vboxmanage controlvm $vm poweroff
+fi
+if [ "$input" == "crear" ]; then
+        read -p "Nombre de la maquina: " vm
+        echo -e "$vm es nombre de la maquina"
 fi
